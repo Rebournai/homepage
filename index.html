@@ -1,0 +1,463 @@
+<title>Rebourn.ai</title>
+<meta name="description" content="Rebourn builds the AI Growth Ecosystem — the context, connections, capabilities and cadence small businesses need to put AI to real work.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap">
+<style>
+  :root{
+    --bg: #FAF9F5;
+    --surface: #F0EEE6;
+    --surface-2: #E8E5DA;
+    --ink: #1B211C;
+    --ink-soft: #545C51;
+    --ink-faint: #8A9086;
+    --accent: #3C6B4C;
+    --accent-ink: #FFFFFF;
+    --accent-soft: #DCE7DC;
+    --line: #D9D4C6;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg: #14180F;
+      --surface: #1C2118;
+      --surface-2: #262C21;
+      --ink: #ECEAE0;
+      --ink-soft: #ABB2A2;
+      --ink-faint: #757C6E;
+      --accent: #7BB68F;
+      --accent-ink: #0F1710;
+      --accent-soft: #263429;
+      --line: #313828;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: #14180F;
+    --surface: #1C2118;
+    --surface-2: #262C21;
+    --ink: #ECEAE0;
+    --ink-soft: #ABB2A2;
+    --ink-faint: #757C6E;
+    --accent: #7BB68F;
+    --accent-ink: #0F1710;
+    --accent-soft: #263429;
+    --line: #313828;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Work Sans", -apple-system, "Segoe UI", sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    padding-inline:24px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:500;
+    line-height:1.12;
+    text-wrap:balance;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:inherit;}
+  .wrap{max-width:1080px; margin-inline:auto;}
+  .eyebrow{
+    font-family:"Space Mono", monospace;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 14px;
+  }
+  .lede{
+    font-size:19px;
+    color:var(--ink-soft);
+    max-width:52ch;
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;
+    top:env(safe-area-inset-top, 0px);
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    z-index:10;
+  }
+  nav.wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-block:18px;
+  }
+  .wordmark{
+    font-family:"Fraunces", serif;
+    font-weight:600;
+    font-size:20px;
+    letter-spacing:-.01em;
+  }
+  .wordmark em{
+    font-style:normal;
+    color:var(--accent);
+  }
+  .navlinks{
+    display:flex;
+    gap:28px;
+    font-size:14px;
+    list-style:none;
+    margin:0; padding:0;
+  }
+  .navlinks a{text-decoration:none; color:var(--ink-soft);}
+  .navlinks a:hover{color:var(--ink);}
+  .navlinks a:focus-visible, a.btn:focus-visible, .emailrow button:focus-visible{
+    outline:2px solid var(--accent); outline-offset:3px;
+  }
+  @media (max-width:640px){ .navlinks{display:none;} }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--accent);
+    color:var(--accent-ink);
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+    padding:12px 22px;
+    border-radius:3px;
+    border:1px solid var(--accent);
+  }
+  .btn:hover{opacity:.9;}
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+    border:1px solid var(--line);
+  }
+
+  /* ---------- sections ---------- */
+  section{padding-block:96px; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  @media (max-width:640px){ section{padding-block:56px;} }
+
+  /* ---------- hero ---------- */
+  .hero{padding-block-start:88px;}
+  .hero h1{
+    font-size:clamp(38px, 6vw, 64px);
+    max-width:14ch;
+  }
+  .hero .lede{margin-top:22px; font-size:20px;}
+  .hero-cta{display:flex; align-items:center; gap:18px; margin-top:34px; flex-wrap:wrap;}
+  .hero-line{
+    margin-top:64px;
+    padding-top:28px;
+    border-top:1px solid var(--line);
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:62ch;
+  }
+
+  /* ---------- problem ---------- */
+  .problem-grid{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:56px;
+    margin-top:40px;
+    align-items:start;
+  }
+  @media (max-width:760px){ .problem-grid{grid-template-columns:1fr; gap:32px;} }
+  .friction-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:20px;}
+  .friction-list li{
+    padding-block:18px;
+    border-top:1px solid var(--line);
+    font-size:16px;
+    color:var(--ink-soft);
+  }
+  .friction-list li:last-child{border-bottom:1px solid var(--line);}
+  .friction-list strong{color:var(--ink); font-weight:500; display:block; margin-bottom:4px;}
+
+  /* ---------- four c's ---------- */
+  .four-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--line);
+    margin-top:48px;
+    border:1px solid var(--line);
+  }
+  @media (max-width:900px){ .four-grid{grid-template-columns:repeat(2, 1fr);} }
+  @media (max-width:520px){ .four-grid{grid-template-columns:1fr;} }
+  .four-card{
+    background:var(--bg);
+    padding:32px 26px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .four-card .tag{
+    font-family:"Space Mono", monospace;
+    font-size:12px;
+    letter-spacing:.08em;
+    color:var(--ink-faint);
+  }
+  .four-card h3{font-size:21px; font-weight:500;}
+  .four-card p{margin:0; color:var(--ink-soft); font-size:15px;}
+
+  /* ---------- process ---------- */
+  .steps{
+    display:flex;
+    flex-direction:column;
+    margin-top:48px;
+  }
+  .step{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:24px;
+    padding-block:32px;
+    border-top:1px solid var(--line);
+  }
+  .steps .step:last-child{border-bottom:1px solid var(--line);}
+  .step .num{
+    font-family:"Fraunces", serif;
+    font-size:15px;
+    color:var(--accent);
+    padding-top:4px;
+  }
+  .step h3{font-size:22px; font-weight:500; margin-bottom:8px;}
+  .step p{margin:0; color:var(--ink-soft); max-width:60ch;}
+
+  /* ---------- who / why ---------- */
+  .split{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+  }
+  @media (max-width:760px){ .split{grid-template-columns:1fr; gap:48px;} }
+  .split .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    padding:36px;
+    border-radius:4px;
+  }
+  .split h2{font-size:26px; margin-bottom:16px;}
+  .split p{color:var(--ink-soft); margin:0;}
+  .quote-line{
+    margin-top:20px;
+    padding-left:16px;
+    border-left:2px solid var(--accent);
+    font-style:italic;
+    color:var(--ink);
+    font-size:15px;
+  }
+
+  /* ---------- contact ---------- */
+  .contact-wrap{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  @media (max-width:760px){ .contact-wrap{grid-template-columns:1fr;} }
+  .emailrow{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:18px 20px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+    margin-bottom:14px;
+    font-family:"Space Mono", monospace;
+    font-size:14px;
+  }
+  .emailrow button{
+    font-family:"Work Sans", sans-serif;
+    font-size:13px;
+    background:transparent;
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:6px 12px;
+    color:var(--ink-soft);
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .emailrow button:hover{color:var(--ink); border-color:var(--ink-faint);}
+  .note{font-size:14px; color:var(--ink-faint); margin-top:18px;}
+
+  footer{
+    padding-block:40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:13px;
+    color:var(--ink-faint);
+  }
+  footer .wordmark{font-size:15px;}
+</style>
+
+<header>
+  <nav class="wrap">
+    <div class="wordmark">rebourn<em>.ai</em></div>
+    <ul class="navlinks">
+      <li><a href="#ecosystem">Ecosystem</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#who">Who it's for</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-ghost" style="font-size:14px; padding:9px 18px;">Get in touch</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <p class="eyebrow">The AI Growth Ecosystem</p>
+    <h1>It is time to rebourn.</h1>
+    <p class="lede">We build the operating system your business needs to put AI to real work — so you save time, save money, and grow, without hiring a technical team.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn">Start a conversation →</a>
+      <a href="#ecosystem" class="btn btn-ghost">See how it works</a>
+    </div>
+    <p class="hero-line">"Not another tool, but an ecosystem that knows how you work, connects what you already use, takes the repeat work off the team, and lets you focus on growth."</p>
+  </section>
+
+  <section class="wrap" id="problem">
+    <div class="problem-grid">
+      <div>
+        <p class="eyebrow">The gap</p>
+        <h2>The problem was never a lack of desire.</h2>
+        <p class="lede" style="margin-top:18px;">Most small business owners already sense they're falling behind on AI. They're working hard instead of smart, and watching competitors move faster. What's missing isn't motivation — it's a structured way to actually put AI to work.</p>
+      </div>
+      <ul class="friction-list">
+        <li><strong>Every new AI tool starts from zero.</strong>No memory of your business, your customers, or what happened last week.</li>
+        <li><strong>Context lives in someone's head, not in a system.</strong>When that person is out, the knowledge is too.</li>
+        <li><strong>Your tools don't talk to each other.</strong>Store, inbox, calendar, and marketing platform all run separately, and AI sits outside all of them.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="wrap" id="ecosystem">
+    <p class="eyebrow">What we build</p>
+    <h2 style="font-size:clamp(28px,4vw,38px); max-width:20ch;">One ecosystem, four working parts.</h2>
+    <p class="lede" style="margin-top:16px;">The AI Growth Ecosystem is the operating layer that holds your business's context, connects to the tools you already use, and runs the skills built on both.</p>
+    <div class="four-grid">
+      <div class="four-card">
+        <span class="tag">01 · CONTEXT</span>
+        <h3>Context</h3>
+        <p>A structured home for how your business actually works: your brand, your products, your goals. It becomes the foundation everything else runs on.</p>
+      </div>
+      <div class="four-card">
+        <span class="tag">02 · CONNECTIONS</span>
+        <h3>Connections</h3>
+        <p>Integrations into the tools you already use — email, calendar, your store, your marketing platform — so nothing lives in a silo.</p>
+      </div>
+      <div class="four-card">
+        <span class="tag">03 · CAPABILITIES</span>
+        <h3>Capabilities</h3>
+        <p>The specific skills your business needs, from drafting customer replies to writing content to reporting on performance, built around what actually saves you time.</p>
+      </div>
+      <div class="four-card">
+        <span class="tag">04 · CADENCE</span>
+        <h3>Cadence</h3>
+        <p>Recurring routines, daily triage, a morning brief, a weekly audit, that keep the ecosystem current without anyone having to remember to ask.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="process">
+    <p class="eyebrow">How it works</p>
+    <h2 style="font-size:clamp(28px,4vw,38px);">Three steps, start to finish.</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="num">01</span>
+        <div>
+          <h3>Understand your business</h3>
+          <p>A short, structured intake into your brand, your goals, and the tools you already run on. This becomes the foundation the rest is built on.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <div>
+          <h3>Build your ecosystem</h3>
+          <p>We connect your tools and put the first skills to work, tailored to what will actually save your team time, not a generic package.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <div>
+          <h3>Grow with support</h3>
+          <p>Ongoing, hands-on support as your ecosystem takes on more, with a person you can reach directly, not a ticket queue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="who">
+    <div class="split">
+      <div class="card">
+        <p class="eyebrow">Who we work with</p>
+        <h2>Built for teams already working hard.</h2>
+        <p>Growing small businesses, e-commerce brands especially, where the team is lean and the operational load is heavy. If your team already senses AI could help but doesn't have the time or the technical background to build it, that's exactly the gap we close.</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Why Rebourn</p>
+        <h2>Built by operators, not consultants.</h2>
+        <p>Rebourn is run by two people who have used AI to run their own businesses, not just advised on it from the outside. We build things that get used.</p>
+        <p class="quote-line">"AI is not a tool. It's something between a tool and a person." — the idea our own systems are built around.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="contact">
+    <div class="contact-wrap">
+      <div>
+        <p class="eyebrow">Get in touch</p>
+        <h2 style="font-size:clamp(28px,4vw,38px); max-width:16ch;">Let's talk about what's slowing your team down.</h2>
+        <p class="lede" style="margin-top:16px;">Tell us where the hours are going. We'll tell you honestly whether the ecosystem is a fit.</p>
+      </div>
+      <div>
+        <div class="emailrow">
+          <span id="email-hamed">hamed@rebourn.ai</span>
+          <button type="button" data-copy="hamed@rebourn.ai" aria-label="Copy Hamed's email address">Copy</button>
+        </div>
+        <div class="emailrow">
+          <span id="email-brett">brett@rebourn.ai</span>
+          <button type="button" data-copy="brett@rebourn.ai" aria-label="Copy Brett's email address">Copy</button>
+        </div>
+        <p class="note">We reply personally. No forms, no funnels.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="wordmark">rebourn<em>.ai</em></div>
+  <div>© 2026 Rebourn.ai — It is time to rebourn.</div>
+</footer>
+
+<script>
+  document.querySelectorAll('button[data-copy]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var text = btn.getAttribute('data-copy');
+      var original = btn.textContent;
+      function done(ok){
+        btn.textContent = ok ? 'Copied' : 'Copy';
+        setTimeout(function(){ btn.textContent = original; }, 1500);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ done(false); });
+      } else {
+        done(false);
+      }
+    });
+  });
+</script>
